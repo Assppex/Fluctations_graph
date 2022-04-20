@@ -54,8 +54,8 @@ class Fluctuations(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.textEdit_6.clear()
             self.textEdit_7.clear()
         else:
-            self.speed0 = float(self.textEdit.toPlainText())
-            self.phi0 = float(self.textEdit_2.toPlainText())
+            self.phi0 = float(self.textEdit.toPlainText())
+            self.speed0 = float(self.textEdit_2.toPlainText())
             self.f = float(self.textEdit_3.toPlainText())
             self.wf = float(self.textEdit_4.toPlainText())
             self.le = float(self.textEdit_5.toPlainText())
@@ -72,7 +72,7 @@ class Fluctuations(QtWidgets.QMainWindow, design.Ui_MainWindow):
         c1 = self.phi0 + A * math.sin(alfa)
         c2 = (self.speed0 + h*c1 -A*self.wf*math.cos(alfa))*(1/ko)
         self.t.append(self.i*100)
-        phi1 = math.exp(-h*self.i)*(c1*math.sin(ko*self.i)+c2*math.cos(ko*self.i))+A*math.sin(self.wf*self.i-alfa)
+        phi1 = math.exp(-h*self.i)*(c2*math.sin(ko*self.i)+c1*math.cos(ko*self.i))+A*math.sin(self.wf*self.i-alfa)
         self.phi.append(phi1)
         self.plot_graph.setData(self.t, self.phi)
         self.i = self.i + 0.1
